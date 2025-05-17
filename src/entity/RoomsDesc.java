@@ -1,3 +1,5 @@
+package entity;
+
 public class RoomsDesc {
     String situation;
     int karmaOne;
