@@ -1,13 +1,32 @@
 package gameloop;
-import gamemechanics.BattleProcess;
-import entity.Character;
-import gamestarter.GameInitialization;
-import entity.*;
+import gamemechanics.*;
 
 public class Gameloop{
-public static void GameStart() {
+public static boolean GameStart() {
     while(true){ 
-        BattleProcess.Battle(RoomsBattle.RoomsInit(), Character PlayersCharacter);
-
+       int roomType = PlayerRoomChoose.PlayerRoomDes();
+       if (roomType == 1) {
+           Fight();
+       } else if (roomType == 2) {
+           Decision();
+       }
 }
-}}
+}
+
+public static boolean Fight(){
+   
+        boolean BattleResult = BattleProcess.BattleResult();
+        if (!BattleResult) {
+            System.out.printf("Game end.\n");
+            return false;
+        } else if (BattleResult) {
+            System.out.printf("You won!\n");
+        }
+        return true;
+} 
+
+public static boolean Decision(){
+    PlayerDecision.PlayersDeсicionResult();
+    return true;
+}
+}

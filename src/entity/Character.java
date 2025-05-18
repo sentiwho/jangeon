@@ -11,6 +11,7 @@ public class Character {
     private int Health;
     private int RunicCircle;
     private int CharacteriscticPoints;
+    private int Karma;
 
     public Character() {
         this.Strength = 1;
@@ -20,12 +21,14 @@ public class Character {
         this.Health = 1;
         this.RunicCircle = 1;
         this.CharacteriscticPoints = 1;
+        this.Karma = 1;
+        
 
     }
 
     static public int[] CharacterChoosingProcess() {
-        int[] LexStats = { 0, 2, 0, 10, 50, 0, 10 };
-        int[] UraStats = { 2, 0, 0, 10, 50, 0, 10 };
+        int[] LexStats = { 0, 2, 0, 10, 50, 0, 10, 0 };
+        int[] UraStats = { 2, 0, 0, 10, 50, 0, 10, 0 };
         System.out.println("Choose your character: Lex, Ura");
         Scanner playerInput = new Scanner(System.in);
         while (true) {
@@ -56,6 +59,7 @@ public class Character {
         this.Health = array[4];
         this.RunicCircle = array[5];
         this.CharacteriscticPoints = array[6];
+        this.Karma = array[7];
     }
 
     // public int [] setCharacterStatAdd(int [] array, int Characteristic) {
@@ -105,9 +109,18 @@ public class Character {
         return Character;
     }
 
+    public int GetCharacterKarma() {
+        return this.Karma;
+    }
+
+    public void setCharacterKarma(int karmaChange) {
+        this.Karma = this.Karma + karmaChange;
+    }
+
+
     public int[] getCharacterAllStats() {
         return new int[] { this.Strength, this.Agility, this.Wisdom, this.Mana, this.Health, this.RunicCircle,
-                this.CharacteriscticPoints };
+                this.CharacteriscticPoints, this.Karma };
     }
 
 }
