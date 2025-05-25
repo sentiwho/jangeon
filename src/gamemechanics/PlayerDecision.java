@@ -3,6 +3,9 @@ import entity.RoomsKarma;
 import gamestarter.GameInitialization;
 import java.util.Scanner;
 
+// This is gameplay for RoomsKarma type of rooms. DOC_ID# 10.
+
+
 public class PlayerDecision {
     public static void PlayersDeсicionResult() {
         RoomsKarma CurrentRoom = RoomsKarma.RoomKarmaInit(RoomRandomizer.RandomResult());

@@ -14,6 +14,8 @@ public class RoomsKarma {
      this.playersKarma = GameInitialization.getPlayersCharacter().GetCharacterKarma();
       }
 
+      /* Same as Roomsbattle but for the peace type room DOC_ID# 8*/
+        
       public static RoomsKarma RoomKarmaInit(int randomizerResult) {
         switch (randomizerResult) {
             case 1:

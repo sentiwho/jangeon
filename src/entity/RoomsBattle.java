@@ -1,5 +1,7 @@
 package entity;
 
+// Class that contains creation of monsters and fight rooms, DOC_ID# 7.
+
 public class RoomsBattle {
     public Monster Monster;
     public int EnemyHealth;

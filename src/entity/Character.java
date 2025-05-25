@@ -3,6 +3,8 @@ package entity;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// Class that controls character object (player character only), DOC_ID# 5.
+
 public class Character {
     private int Strength;
     private int Agility;

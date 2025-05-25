@@ -1,6 +1,9 @@
 package gamemechanics;
 import java.util.Random;
 
+// Get random number in rooms amount range, currently stupid. DOC_ID# 12.
+
+
 public class RoomRandomizer {
     public static int RandomResult() {
         // Создаем объект класса Random

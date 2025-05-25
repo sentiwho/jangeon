@@ -5,6 +5,8 @@ import entity.RoomsBattle;
 import gamestarter.GameInitialization;
 import java.util.Scanner;
 
+// Process of fight, there all the formulas and fight options. DOC_ID# 9.
+
 
 public class BattleProcess {
 

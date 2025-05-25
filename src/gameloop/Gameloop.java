@@ -1,6 +1,9 @@
 package gameloop;
 import gamemechanics.*;
 
+// Game engine. Loops game process until character is dead. DOC_ID# 4.
+
+
 public class Gameloop{
 public static boolean GameStart() {
     while(true){ 

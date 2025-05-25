@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+// Part of character creation, dustributing stats, sets stats for character using Character.class setters. DOC_ID# 3.
+
 public class StatsDist {
   static void statsDistribution(Character playersCharacter) {
     int statsToDistAmount = 10;
@@ -36,8 +38,6 @@ public class StatsDist {
         System.out.println("Stop smacking keyboard! Just send me a number!" + e.getMessage());
     }
 }
-
-      // return Массив с распределенными характеристиками
     
       System.out.printf("you spent all of it! Your stats is %s\n", Arrays.toString(distedStats));
   }

@@ -2,6 +2,9 @@ package gamemechanics;
 
 import java.util.Scanner;
 
+// This is where logic for player choose type of room we want to visit next is. DOC_ID# 11.
+
+
 public class PlayerRoomChoose {
         
         public static int PlayerRoomDes() {

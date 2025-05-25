@@ -1,5 +1,8 @@
 package entity;
 
+// Class that creates monster objects that will be faced in battle rooms, DOC_ID# 6.
+
+
 public class Monster {
     int HealthAmount;
     int Damage;

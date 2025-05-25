@@ -3,6 +3,7 @@ package gamestarter;
 import entity.Character;
 import java.util.Arrays;
 
+// Class that responds for player object being created, DOC_ID# 2.
 public class GameInitialization {
   private static Character playersCharacter; 
 
@@ -15,6 +16,6 @@ public class GameInitialization {
         StatsDist.statsDistribution(playersCharacter);
     }
   public static Character getPlayersCharacter() {
-        return playersCharacter; // Метод для доступа к экземпляру Character
+        return playersCharacter; // Methos that gives acces to an exemplar of Character
     }
 } 

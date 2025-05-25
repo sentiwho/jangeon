@@ -1,0 +1,119 @@
+1. Main, programm entrance point
+
+GameInitialization.StartCharacterCreationProcess(); - Starting once executed characte creation process.
+Gameloop.GameStart(); - starts game engine.
+
+The main way to enter the programm and run it. Contains in itself once executed character creationg method - StartCharacterCreationProcess, and after its ended (customisible character is created) it will start gameloop,
+ that is game engine that generates gameplay until player is losed (dead). After death of player programm will end itself.
+________________________________________________________________________________________________________________________________________________________
+
+2. GameInitialization, character creation and acces package
+
+StartCharacterCreationProcess - method that greets the player, and creates the character object that we will use in future.
+getPlayersCharacter - getter, that we use to get acces for other methods to created character object.
+
+Class is contain two important methods that initialises the game. When StartCharacterCreationProcess is once executed, the getPlayersCharacter is reused all along the game is goin.
+________________________________________________________________________________________________________________________________________________________
+
+3. StatsDist, part of character creation process.
+
+statsDistribution - once executed process of distributing initial amount of points choosen preset has.
+
+It takes created character object and created an iteration that takes input of user that says what stat he want to impove, and uses the setters to modifiy the character object.
+IT IS A ONCE RUNNING! The reason for that is we need more user friendly introduction to gameplay, so there will be nearly the same functional method, but with less text there and there.
+
+________________________________________________________________________________________________________________________________________________________
+
+4. Gameloop, class thats starts after character creation process is done, responsible for game running while player is alive.
+
+GameStart - method that runs the game loop. Realisation is programm waits for user input to decide what type of room he wants to face - either 1 or 2.
+Depends of input one of two methods will be called and will return either true of false. If the room passed then in returns true > game continues.
+If player fail the room > returns false, gameloop ends = game ends.
+
+
+Fight - one of two gameplay methods, starts the "battle" mode room. Starts BattleResult method of BattleProcess class, that will return boolean.
+Decision - one of two gameplay methods, starts the "peace" mode room. Starts PlayersDeсicionResult method of PlayerDecision class, that will return boolean.
+
+PlayerRoomDes that called in it just simple input taker with some text. 
+The overall class is a main part of creating "non stop game running process" also known as game engine.
+
+______________________________________________________________________________________________________________________________________________
+
+5. Character, class for manipulating PLAYERS character only.
+
+Got default constructor public Character() that shows what stats has players character.
+CharacterChoosingProcess - once running method that serves to create character at the start of the programm run. As well as setCharacterHero.
+setAddCharacterStat - method to distribute stats. Takes string of a stat we want to improve by 1. We will call it and pass name of characteristic we want to improve.
+Batch improvment has no realisation by now. 
+Getters and Setter - all of them are simple and used to pass some character info to the gameplay methods.
+
+Method fully responsible for any manipulation with object. !!!!!!!!!! BUT ACCES TO THE OBJECT ITSELF GRANTED BY getPlayersCharacter() METHOD OF GameInitialization CLASS !!!!!!!!!
+
+______________________________________________________________________________________________________________________________________________
+
+6. Monster, constructor for creating enemy objects that we will fight.
+
+Got default constructor Monster(int hp, int dmg, String name)
+Got getters for name dmg and hp to process the fight
+
+At the moment simple class. Will be called during room creation process to fill the room with some monster. YES, only one monster per room.
+
+______________________________________________________________________________________________________________________________________________
+
+7. RoomsBattle, there will be created monsters and rooms that will be passed to the gameplay section when its called.
+
+Got constructor RoomsBattle that has monster in it (its initialised when method RoomInit called) and characterictics of the monster(getters from the monster class)
+RoomsInit - method that CONTAIN ALL THE ROOMS FOR THE GAME!!!!! Takes random number for randomise room of type that player choose.
+Cases in switch construction stores an individual option for room. Adding a new room will be same as adding new switch case. 
+      Current realisation fully relies on JVM Garbage Collector. Example: Player gets case 1 in RoomKarmaInit method:
+                                                                                                1. Room SoldierAskPotion being created as an object
+                                                                                                2. Player ends the room
+                                                                                                3. Player rolls 1 again for RoomKarmaInit
+                                                                                                4. Another SoldierAskPotion object is created, and the old 
+                                                                                                one supposed to be marked as unreachable due to fact that
+                                                                                                nothing are point at it anymore, and will be deleted when
+                                                                                                Garbage Collector decides to
+      There others approaches but none of them can give you easy way to mannualy manipulate memory in Java.
+      Option im considering to switch into is txt file with rooms settings, and method that called once and the start of the game, and initializing all
+      the rooms and game objects we will use in the future gameplay. It will kind of decrease loading speed coz we not creating the objects anymore, but
+      instead just call them. But this leads to design problems, as room X modificator for example.
+
+______________________________________________________________________________________________________________________________________________
+
+8. RoomsKarma, pretty same as RoomsBattle (DOC_ID# 7 ) class.
+
+RoomKarmaInit - method that CONTAIN ALL THE ROOMS FOR THE GAME!!!!! Works as the mentioned above. Takes random number of RoomRandomizer class.
+Has getters for its description and karma stat that for now does nothing.
+
+RoomsKarma objects contain string of situation that players will make decision in, and two numbers that determines in wich side characteristic of players karma will be modified.
+
+
+_________________________________________________________________________________________________________________________________________________________
+
+9. BattleProcess, this class is responsible for all fighting goin on in the game, formulas, options.
+
+BattleResult - method that starts battle, in the end of one will be returned boolean that decides game fate. Calles battle method, that we pass RoomsInit, Initialisation of the room method, where we pass randomizer for room.
+Also we pass players character.
+
+Battle - fight process. Gets monster info and players info, input will be used to manipulate the fight. 
+
+_________________________________________________________________________________________________________________________________________________________
+
+10. PlayerDecision, simple gameplay process class
+
+PlayersDeсicionResult - takes the input of player to make an decision in peace room.
+Also modifies player stat in execution of it!
+
+_________________________________________________________________________________________________________________________________________________________
+
+11. PlayerRoomChoose, simple but important gameplay class, takes input to pass into room creation
+
+PlayerRoomDes - takes input, and returns it for future use.
+Simple as that.
+
+_________________________________________________________________________________________________________________________________________________________
+
+12. RoomRandomizers, simple class that just returns random number, used to get a random roon from list of the rooms.
+
+RandomResult - does what its should. Returns it.
+_________________________________________________________________________________________________________________________________________________________
