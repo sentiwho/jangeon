@@ -7,7 +7,7 @@ public class RoomsKarma {
      int desicionNo;
     int playersKarma;
  
-    public RoomsKarma(String sit, int desNo, int desYes) {
+    public RoomsKarma(String sit, int desNo, int desYes) { 
      this.situation = sit;
      this.desicionYes = desNo;
      this.desicionNo = desYes;
